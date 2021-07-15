@@ -20,7 +20,7 @@ export class Oath<T = any> {
   status : Status = Status.PENDING
   result : T | null = null
   error  : any = null
-  done   : boolean = false
+  done = false
 
   successHandlers : OathCallback<T>[]   = []
   errorHandlers   : OathCallback<any>[] = []
@@ -39,8 +39,8 @@ export class Oath<T = any> {
   static reject(err: any) : Oath<any> {
     if (this.isOath<any>(err)) {
       return err
-        .catch(e => this.reject(err))
-        .then(e => this.reject(err))
+        .catch(e => this.reject(e))
+        .then(e => this.reject(e))
     }
 
     return new Oath<any>((_, bad) => bad(err));
