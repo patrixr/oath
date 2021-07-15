@@ -45,7 +45,7 @@ it('allows returning another Oath in the then statement', async (t) => {
   t.is(res, 101);
 })
 
-it.skip('creates a rejected oath with Oath.reject', async (t) => {
+it('creates a rejected oath with Oath.reject', async (t) => {
   let err : any
 
   try {
